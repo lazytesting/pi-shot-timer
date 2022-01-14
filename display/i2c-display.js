@@ -22,4 +22,4 @@ class I2CDisplay {
   }
 
 }
-module.exports = ConsoleDisplay;
+module.exports = I2CDisplay;
