@@ -10,6 +10,8 @@ class GpioInput {
         
         button.watch((err, value) => {
             //todo check for error
+            console.log('value is');
+            console.log(value);
             if (value === true) {
                 this.eventEmitter.emit('shotStarted');
             }
