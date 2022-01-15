@@ -11,7 +11,7 @@ class I2CDisplay {
     };
 
     this.oled = new oled(i2cBus, opts);
-    
+    this.oled.turnOnDisplay();
     }
   
 
