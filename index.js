@@ -1,5 +1,4 @@
-//const Display = require('./display/i2c-display.js');
-const Display = require('./display/console-display.js');
+const Display = require('./display/i2c-display.js');
 const ShotTimer = require('./domain/shot-timer.js');
 const EventEmitter = require('events')
 const Input = require('./input/gpio-input.js');
