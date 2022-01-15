@@ -9,13 +9,14 @@ class ShotTimer {
         let interval;
         let startDate;
         this.eventEmitter.on('shotStarted', () => {
-            console.log('event received');
-            startDate = Date.now();
-            interval = setInterval(()=> this.display.displayTimer(Date.now() - startDate) , 100);      
+            console.log('shotStarted received');
+            //startDate = Date.now();
+            //interval = setInterval(()=> this.display.displayTimer(Date.now() - startDate) , 100);      
         });
         this.eventEmitter.on('shotStopped', () => {
-            clearInterval(interval);
-            this.display.displayTimer(Date.now() - startDate);
+            console.log('shotStopped received');
+           // clearInterval(interval);
+            // this.display.displayTimer(Date.now() - startDate);
         });
     }   
 }
