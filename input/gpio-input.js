@@ -12,7 +12,7 @@ class GpioInput {
             //todo check for error
             console.log('value is');
             console.log(value);
-            if (value === true) {
+            if (value === false) {
                 this.eventEmitter.emit('shotStarted');
             }
             else {
