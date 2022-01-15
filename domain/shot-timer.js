@@ -1,21 +1,17 @@
 class ShotTimer {
     constructor(eventEmitter, display) {
-      this.eventEmitter = eventEmitter;
+        eventEmitter.on('shotStarted', () => {
+            this.startTimer();  
+        });
+        eventEmitter.on('shotStopped', () => {
+            this.stopTimer();
+        });
       this.display = display;
-      this.init();
     }
 
     #shotStart;
     #interval;
     
-    init() {
-        this.eventEmitter.on('shotStarted', () => {
-            this.startTimer();  
-        });
-        this.eventEmitter.on('shotStopped', () => {
-            this.stopTimer();
-        });
-    }
 
     startTimer() {
         console.log('shotStarted received');
