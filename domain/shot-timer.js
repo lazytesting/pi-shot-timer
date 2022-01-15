@@ -4,21 +4,31 @@ class ShotTimer {
       this.display = display;
       this.init();
     }
+
+    #shotStart;
+    #interval;
     
     init() {
-        let interval;
-        let startDate;
         this.eventEmitter.on('shotStarted', () => {
-            console.log('shotStarted received');
-            startDate = Date.now();
-            interval = setInterval(()=> this.display.displayTimer(Date.now() - startDate) , 100);      
+            this.startTimer();  
         });
         this.eventEmitter.on('shotStopped', () => {
-            console.log('shotStopped received');
-            clearInterval(interval);
-            this.display.displayTimer(Date.now() - startDate);
+            this.stopTimer();
         });
-    }   
+    }
+
+    startTimer() {
+        console.log('shotStarted received');
+        this.#shotStart = Date.now();
+        this.#interval = setInterval(()=> this.display.displayTimer(Date.now() - this.#shotStart) , 100);      
+    }
+
+    stopTimer() {
+        console.log('shotStopped received');
+        clearInterval(this.#interval);
+        this.display.displayTimer(Date.now() - this.#shotStart);
+    }
+
 }
 
 module.exports = ShotTimer;
