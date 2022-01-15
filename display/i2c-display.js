@@ -1,14 +1,16 @@
 class I2CDisplay {
   constructor() {
     this.font =  require('oled-font-5x7');
-    var oled = require('oled-js-pi');
+    var i2c = require('i2c-bus'),
+      i2cBus = i2c.openSync(1),
+      oled = require('oled-i2c-bus');
     var opts = {
       width: 128,
       height: 64,
       address: 0x3D
     };
 
-    this.oled = new oled(opts);
+    this.oled = new oled(i2cBus, opts);
     
     }
   
