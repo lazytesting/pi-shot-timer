@@ -19,6 +19,7 @@ class GpioInput {
             }
             else {
                 this.eventEmitter.emit('shotStopped');
+                this.#isStarted = false;
             }
         });
     }
