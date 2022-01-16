@@ -14,15 +14,15 @@ class I2CDisplay {
     };
 
     this.oled = new OLED(i2cBus, opts);
-    this.oled.clearDisplay()
+    this.oled.clearDisplay();
     this.oled.setCursor(1, 1);
     this.oled.writeString(this.font, 2, 'ready', 1, true);
     console.log('init done');
   }
   
   displayTimer(millis) {
-    console.log(millis);
     const prettyTime = `${Math.round(millis / 1000)} s`; //todo 0 safe
+    this.oled.clearDisplay();
     this.oled.setCursor(1, 1);
     this.oled.writeString(this.font, 2, prettyTime, 1, true);
   }
