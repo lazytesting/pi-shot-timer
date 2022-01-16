@@ -3,6 +3,8 @@ class GpioInput {
       this.eventEmitter = eventEmitter;
       this.init();
     }
+
+    #isStarted = false;
     
       init() {
         const Gpio = require('onoff').Gpio;
@@ -11,7 +13,9 @@ class GpioInput {
         button.watch((err, value) => {
  
             if (value === 0) {
+              if(this.#isStarted) return;
                 this.eventEmitter.emit('shotStarted');
+                this.#isStarted = true;
             }
             else {
                 this.eventEmitter.emit('shotStopped');
