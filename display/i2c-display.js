@@ -15,6 +15,9 @@ class I2CDisplay {
 
     this.oled = new OLED(i2cBus, opts);
     this.oled.clearDisplay()
+    this.oled.setCursor(1, 1);
+    this.oled.writeString(this.font, 2, 'ready', 1, true);
+    console.log('init done');
   }
   
   displayTimer(millis) {
