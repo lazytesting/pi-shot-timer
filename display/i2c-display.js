@@ -13,8 +13,8 @@ class I2CDisplay {
         address: 0x3C
     };
 
-    this.firstoled = new OLED(i2cBus, opts);
-    this.firstoled.clearDisplay()
+    this.oled = new OLED(i2cBus, opts);
+    this.oled.clearDisplay()
   }
   
   displayTimer(millis) {
