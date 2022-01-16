@@ -14,7 +14,7 @@ class I2CDisplay {
     };
 
     this.firstoled = new OLED(i2cBus, opts);
-    firstoled.clearDisplay()
+    this.firstoled.clearDisplay()
   }
   
   displayTimer(millis) {
