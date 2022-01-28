@@ -12,11 +12,11 @@ class Display:
 		BORDER = 5
 
 		i2c = board.I2C()
-		oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_reset)
+		self.__oled = adafruit_ssd1306.SSD1306_I2C(WIDTH, HEIGHT, i2c, addr=0x3C, reset=oled_reset)
 
 		# Clear display.
-		oled.fill(0)
-		oled.show()
+		self.__oled.fill(0)
+		self.__oled.show()
 
 
 
@@ -29,7 +29,7 @@ class Display:
 		image = Image.new("1", (oled.width, oled.height))
 		draw = ImageDraw.Draw(image)
 		draw.text(
-				(oled.width // 2 - font_width // 2, oled.height // 2 - font_height // 2),
+				(self.__oled.width // 2 - font_width // 2, self.__oled.height // 2 - font_height // 2),
 				text,
 				font=font,
 				fill=255,
