@@ -35,4 +35,4 @@ class Display:
 				fill=255,
 		)
 		self.__oled.image(image)
-		self.__	oled.show()
+		self.__oled.show()
