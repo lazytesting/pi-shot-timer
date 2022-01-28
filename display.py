@@ -26,6 +26,7 @@ class Display:
 		font = ImageFont.load_default()
 
 		(font_width, font_height) = font.getsize(text)
+		image = Image.new("1", (oled.width, oled.height))
 		draw = ImageDraw.Draw(image)
 		draw.text(
 				(oled.width // 2 - font_width // 2, oled.height // 2 - font_height // 2),
