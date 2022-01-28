@@ -33,4 +33,6 @@ class Display:
 				text,
 				font=font,
 				fill=255,
-	)
+		)
+		self.__oled.image(image)
+		self.__	oled.show()
